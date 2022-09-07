@@ -1,0 +1,30 @@
+div {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+.credentials {
+    padding: 1%;
+}
+
+button {
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+#msg {
+    color: red;
+}
+
+.register {
+    font-style: italic;
+}
+
+.row {
+    width: 75%;
+}
+
+#outer {
+    margin-bottom: 5%;
+}

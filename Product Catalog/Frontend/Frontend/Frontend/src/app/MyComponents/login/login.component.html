@@ -1,0 +1,34 @@
+<div id="outer">
+    <h6>LOGIN TO SEE PRODUCT'S COMPLETE DETAILS.</h6>
+    <br>
+    <form #loginForm="ngForm" (ngSubmit)="loginCustomer()" class="border border-secondary rounded">
+
+        <small id="msg">{{msg}}</small>
+        <br>
+
+
+        <div class="row g-3 credentials">
+            <div class="col-auto">
+                <label class="col-form-label">Username</label>
+            </div>
+            <div class="col-auto">
+                <input type="text" name="username" class="form-control" [(ngModel)]="customer.username" required
+                    #username="ngModel">
+                <!-- [class.is-invalid]="username.invalid"> -->
+            </div>
+        </div>
+        <div class="row g-3 credentials">
+            <div class="col-auto">
+                <label class="col-form-label">Password</label>
+            </div>
+            <div class="col-auto">
+                <input type="text" name="password" class="form-control" [(ngModel)]="customer.password" required>
+            </div>
+        </div>
+
+        <button class="btn btn-secondary btn-sm">SIGN IN</button>
+        <br>
+        <small class="float-right register" (click)="registrationRedirect()">Not a member? Register</small>
+    </form>
+</div>
+<app-dashboard></app-dashboard>

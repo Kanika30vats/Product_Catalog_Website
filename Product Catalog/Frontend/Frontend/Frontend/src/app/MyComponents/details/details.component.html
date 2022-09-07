@@ -1,0 +1,95 @@
+<div class="container">
+    <div id="details">
+
+        <img src="{{data.image}}" id="im" />
+        <br>
+        <div class="row g-3 credentials">
+            <div class="col-auto">
+                <label class="col-form-label">ID : </label>
+            </div>
+            <div class="col-auto">
+                <label class="col-form-label">{{data.id}} </label>
+            </div>
+        </div>
+
+        <div class="row g-3 credentials">
+            <div class="col-auto">
+                <label class="col-form-label">Code : </label>
+            </div>
+            <div class="col-auto">
+                <label class="col-form-label">{{data.code}} </label>
+            </div>
+        </div>
+
+        <div class="row g-3 credentials">
+            <div class="col-auto">
+                <label class="col-form-label">Name : </label>
+            </div>
+            <div class="col-auto">
+                <label class="col-form-label">{{data.name}} </label>
+            </div>
+        </div>
+
+        <div class="row g-3 credentials">
+            <div class="col-auto">
+                <label class="col-form-label">Brand : </label>
+            </div>
+            <div class="col-auto">
+                <label class="col-form-label">{{data.brand}} </label>
+            </div>
+        </div>
+
+        <div class="row g-3 credentials">
+            <div class="col-auto">
+                <label class="col-form-label">Price : </label>
+            </div>
+            <div class="col-auto">
+                <label class="col-form-label">{{data.price}} </label>
+            </div>
+        </div>
+
+        <div class="row g-3 credentials">
+            <div class="col-auto">
+                <label class="col-form-label">Description : </label>
+            </div>
+            <div class="col-auto">
+                <label class="col-form-label">{{data.des}} </label>
+            </div>
+        </div>
+        <br>
+
+
+
+
+
+
+
+
+
+
+        <!-- <h5>Id : {{data.id}}</h5>
+        <h5>Name : {{data.name}}</h5>
+        <h5>Brand : {{data.brand}}</h5>
+        <h5><img src="{{data.image}}" id="im"/></h5>
+        <h5>Price :  {{data.price}}</h5>
+        <h5>Description :</h5>
+        <p>{{data.des}}</p> -->
+        <form class="form-inline waves-light" mdbWavesEffect #loginForm="ngForm" (ngSubmit)="checkPincode(data.id)">
+            <br>
+            <div *ngIf="isDelivery">
+                <h6>Delivery in {{deliveryData[0].expectedDeliveryTime}} days</h6>
+            </div>
+            <div *ngIf="test">
+                <h6>Not deliverable at this location</h6>
+            </div>
+            <br>
+            <div class="md-form mt-0">
+                <input class="form-control mr-sm-2" type="text" name="pincode" placeholder="Search" #pincode="ngModel"
+                    [(ngModel)]="delivery.pincode">
+            </div>
+            <br>
+            <button class="btn btn-sm btn-secondary" type="submit">Search Pincode</button>
+        </form>
+
+    </div>
+</div>

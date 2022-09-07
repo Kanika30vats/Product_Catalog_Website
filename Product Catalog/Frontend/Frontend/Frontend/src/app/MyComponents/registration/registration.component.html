@@ -1,0 +1,52 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<div class="container register-form">
+    <form #Registerform="ngForm" (ngSubmit)="registerCustomer(confirmPassword)" class="border border-secondary rounded">
+
+        <small id="msg">{{msg}}</small>
+
+        <div class="form-content">
+            <div class="row g-3 credentials">
+                <div class="col-md-3">
+                    <label class="col-form-label">Username</label>
+                </div>
+                <div class="col-auto">
+                    <div class="form-group">
+                        <input type="text" name="username" class="form-control" placeholder="Your Username *"
+                            [(ngModel)]="customer.username" #username="ngModel" />
+                    </div>
+                </div>
+            </div>
+            <div class="row g-3 credentials">
+                <div class="col-md-3">
+                    <label class="col-form-label">Password</label>
+                </div>
+                <div class="col-auto">
+                    <div class="form-group">
+                        <input type="text" name="password" class="form-control" placeholder="Your Password *" value=""
+                            [(ngModel)]="customer.password" #password="ngModel" required />
+                        <small class="pw" [class.d-none]="password.valid || password.untouched">Password invalid</small>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-3 credentials">
+                <div class="col-md-3">
+                    <label class="col-form-label">Confirm Password</label>
+                </div>
+                <div class="col-auto">
+                    <div class="form-group">
+                        <input type="text" name="confirmPassword" class="form-control" placeholder="Confirm Password *"
+                            #confirmPassword="ngModel" (ngModel)="customer.password" required />
+                        <small class="pw"
+                            [class.d-none]="(confirmPassword.value == password.value) || confirmPassword.untouched">Password
+                            incorrect</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-sm btn-secondary">Register</button>
+        <small class="float-right register" (click)="login()">Already registered? Sign In here.</small>
+    </form>
+</div>

@@ -1,0 +1,63 @@
+<div class="container">
+
+  <div>
+    <button id="logout" *ngIf="flag" (click)="logout()" class="btn btn-sm btn-secondary">Logout</button>
+  </div>
+  <br>
+  <br>
+  <div>
+    <h5><i>Enter product name, brand or code to search.</i></h5>
+  </div>
+
+
+  <div class="container-fluid ">
+    <div class="input-group mb-3">
+      <form class="form-inline waves-light" #loginForm="ngForm" (ngSubmit)="searchProduct(pname)">
+        <div class="row">
+          <div class="col-8">
+            <input class="form-control" type="text" name="pname" placeholder="Search" #pname="ngModel"
+              [(ngModel)]="SearchProduct.pname">
+          </div>
+          <div class="input-group-append col-4">
+            <button class="btn btn-sm btn-outline-secondary" type="submit">Search</button>
+            &nbsp;
+            <button class="btn btn-sm btn-outline-secondary" type="submit" (click)="showAllProds()">Show All
+              Product</button>
+            <br><br>
+          </div>
+          <div id="sort-button" class="col">
+            <br>
+            <p *ngIf="flag">Sort By Price</p>
+            <button class="btn btn-sm btn-outline-secondary" type="submit" (click)="sortAsc()" *ngIf="flag">low to
+              high</button>
+            &nbsp;
+            <button class="btn btn-sm btn-outline-secondary" type="submit" (click)="sortDesc()" name="high"
+              *ngIf="flag">high to low</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+
+
+  <h6 *ngIf="result">No Products Available</h6>
+
+
+
+  <div class="row card-div">
+    <div class="card mb-3" style="width: 18rem;" *ngFor='let us of readData'>
+      <div class="card-header text-white bg-dark">{{us.name}}</div>
+      <img src="{{us.image}}">
+      <div class="card-body">
+        <h5 class="card-title">{{us.name}}</h5>
+        <p class="card-text">{{us.code}} <br> {{us.brand}}</p>
+        <button class="btn btn-sm btn-outline-secondary" color="primary" (click)="checkDetails(us.pId)"
+          *ngIf="flag">More
+          Details</button>
+      </div>
+    </div>
+  </div>
+</div>

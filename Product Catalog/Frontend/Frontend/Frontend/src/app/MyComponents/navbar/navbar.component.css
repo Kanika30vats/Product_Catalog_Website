@@ -1,0 +1,13 @@
+span {
+    font-size: xx-large !important; 
+    margin: 0 auto;
+    font-weight: bolder;
+}
+
+#toolbar {
+    /* position: fixed; */
+    background-color: rgb(68, 67, 67);
+    color: rgb(224, 220, 220);
+    padding: 2.5%;
+    margin-bottom: 3%;
+}
